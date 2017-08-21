@@ -1,0 +1,114 @@
+#ADS-B WebCrawler configuration settings
+url: http://bma.data.fr24.com/zones/fcgi/feed.js?bounds=%s&faa=0&mlat=1&adsb=1&gnd=1&air=1&gliders=0&stats=0&callback=jQuery&_=%s
+
+#The coordinates of the world settings
+area:
+  coordinates:
+    # East of North America
+    - 90,10,-180,-90
+    # West of North America
+    - 90,10,-90,0
+    # Europe
+    - 90,30,0,70
+    # Australia
+    - 20,-90,90,180
+    # South America
+    - 0,-90,-180,0
+
+#Airline settings
+airline:
+  code2:
+    - JBE
+    - A6
+    - YG
+    - FM
+    - MZT
+    - DZ
+    - MF
+    - BJN
+    - EPB
+    - PN
+    - DR
+    - NS
+    - AQ
+    - BGC
+    - CHJ
+    - NSJ
+    - HO
+    - HFJ
+    - EU
+    - 8L
+    - CN
+    - MU
+    - RY
+    - OQ
+    - Y8
+    - ZH
+    - CZ
+    - QSR
+    - GY
+    - XW
+    - 3U
+    - CF
+    - XAI
+    - G5
+    - TV
+    - KN
+    - UW
+    - JD
+    - LLJ
+    - O3
+    - CA
+    - FU
+    - KY
+    - HU
+    - GX
+    - UQ
+    - BK
+    - MJC
+    - NEJ
+    - 9C
+    - CK
+    - XX
+    - GJ
+    - FSJ
+    - SC
+    - MM
+    - HHG
+    - QW
+    - ICU
+    - GS
+    - HH
+
+#Send Queue settings
+sendQueue: Flightradar24
+sendExpiredTime: 5000
+
+#Spring boot activemq settings
+spring:
+  activemq:
+    broker-url: tcp://10.25.246.196:61616
+    user: admin
+    password: admin
+    pool:
+      enabled: true
+      max-connections: 50
+
+#Spring boot endpoints settings
+endpoints:
+  health:
+    sensitive: false
+
+#Spring boot management settings
+management:
+  security:
+    enabled: false
+
+server:
+  port: 8000
+
+#Logging settings
+logging:
+
+  level: INFO
+  file: ./ADSBWebCrawler/logs/ADSBWebCrawler.log
